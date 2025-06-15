@@ -2,7 +2,6 @@
   "name": "e-commerce",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://vishiarch.github.io/Cup-chronicle",
   "type": "module",
   "scripts": {
     "dev": "vite",
