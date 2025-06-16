@@ -63,6 +63,7 @@ const Login = () => {
             SUBMIT
           </button>
           <button
+          onClick={() => navigate("/landing")}
             className="relative top-[20vh] h-[6.5vh] w-[13vw] border rounded-full cursor-pointer"
             style={{ fontFamily: "Abel, sans-serif" }}
           >
