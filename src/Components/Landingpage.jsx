@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoMenuOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const Landingpage = () => {
 
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ const goToMenu = () => {
 }
   return (
     <div>
-      <div className="h-screen w-full bg-black">
+      <motion.div className="h-screen w-full bg-black">
         {/* Navbar */}
         <div className="h-[7vh] w-full flex items-center justify-between px-4">
           <h1 className="text-[16px] text-white cursor-pointer">Cup & Chronicle</h1>
@@ -29,9 +29,36 @@ const goToMenu = () => {
             Masterfully Brewed Moments.
           </h1>
 
-          <button className="border border-white hover:border-transparent hover:bg-white hover:text-black cursor-pointer relative top-[5vh] h-[7vh] w-[12.7vw] rounded-full text-white transition-all duration-300">
-            Explore
-          </button>
+          <motion.button
+      whileHover="hover"
+      initial="rest"
+      animate="rest"
+      variants={{
+        rest: { scale: 1, boxShadow: "0px 0px 0px rgba(255,255,255,0)" },
+        hover: { 
+          scale: 1.08,
+          boxShadow: "0px 0px 18px rgba(255,255,255,0.6)", 
+          transition: {
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+          },
+        },
+      }}
+      className="group border border-white hover:border-transparent bg-transparent hover:bg-white hover:text-black cursor-pointer relative top-[5vh] h-[7vh] w-[12.7vw] rounded-full text-white overflow-hidden transition-colors duration-300"
+    >
+      {/* Animated Text Inside */}
+      <motion.span
+        variants={{
+          rest: { opacity: 1 },
+          hover: {opacity: 0.8 },
+        }}
+        transition={{ duration: 0.3 }}
+        className="block"
+      >
+        Explore
+      </motion.span>
+    </motion.button>
 
           {/* Taglines */}
           <span className="absolute text-white text-[13px] top-[75vh] left-[1.6vw]">
@@ -43,9 +70,9 @@ const goToMenu = () => {
             <br />
             creativity, and personalized design. Elevate
             <br />
-            everyday moments with timeless design,
+            everyday momenth timeless design,
             <br />
-            crafted mugs, elegant diaries, and a touch of style.
+            crafted mugs,
           </span>
 
           {/* Product Image */}
@@ -55,7 +82,8 @@ const goToMenu = () => {
             className="h-[30vh] w-[22vw] object-cover relative left-[35vw] top-[10vh] cursor-pointer"
           />
         </div>
-      </div>
+      </motion.div>
+      {/* Featured Products */}
     </div>
   );
 };
